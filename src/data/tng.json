@@ -1,0 +1,49 @@
+{
+	"people": [
+		{
+			"id": 1,
+			"name": "Jean-Luc Picard",
+			"position": "Captain",
+			"species": "human",
+			"photo": "/img/picard.jpg",
+			"affiliation": "Starfleet",
+			"playedBy": "Patrick Stewart"
+		},
+		{
+			"id": 2,
+			"name": "Data",
+			"position": "Chief Operations Officer",
+			"affiliation": "Starfleet, United Federation of Planets",
+			"species": "android",
+			"playedBy": "Brent Spiner",
+			"photo": "/img/data.jpg"
+		},
+		{
+			"id": 3,
+			"name": "Geordi La Forge",
+			"playedBy": "LeVar Burton",
+			"species": "human",
+			"position": "Chief Engineer",
+			"affiliation": "United Federation of Planets, Starfleet",
+			"photo": "/img/geordi.jpg"
+		},
+		{
+			"id": 4,
+			"name": "Deanna Troi",
+			"playedBy": "Marina Sirtis",
+			"species": "betazoid/human",
+			"affiliation": "United Federation of Planets, Starfleet",
+			"position": "Counselor",
+			"photo": "/img/troi.jpg"
+		},
+		{
+			"id": 5,
+			"name": "Worf",
+			"species": "klingon",
+			"affiliation": "House of Martok, House of Mogh, Starfleet",
+			"playedBy": "Michael Dorn",
+			"position": "Chief Security Officer",
+			"photo": "/img/worf.jpg"
+		}
+	]
+}
