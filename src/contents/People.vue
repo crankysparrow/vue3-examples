@@ -1,6 +1,5 @@
 <script setup>
 import { people } from '../data/tng.json'
-import { useRouter } from 'vue-router'
 </script>
 
 <template>
@@ -10,8 +9,7 @@ import { useRouter } from 'vue-router'
 			<ul>
 				<li v-for="person in people" :key="person.id">
 					<router-link
-						:to="{ name: 'person', params: { id: person.id } }"
-					>
+						:to="{ name: 'person', params: { id: person.id } }">
 						{{ person.name }}
 					</router-link>
 				</li>
@@ -29,17 +27,18 @@ import { useRouter } from 'vue-router'
 	padding-left: 0;
 	padding-top: 0;
 	padding-bottom: 0;
+	padding-right: 0;
 }
 .list-choose {
 	background-color: #303030;
 	padding-left: 2rem;
 	padding-right: 2rem;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 20px;
+	padding-bottom: 10px;
 }
 ul {
 	list-style: none;
-	margin: 0 0 1.5rem;
+	margin: 0;
 	padding: 0;
 }
 
@@ -52,7 +51,7 @@ ul li {
 ul li a {
 	display: block;
 	background-color: transparent;
-	padding: 0.2rem 1.5rem;
+	padding: 0.1rem 1.5rem;
 	margin-left: -1.5rem;
 	width: 100%;
 }
@@ -77,7 +76,7 @@ ul li a:focus {
 .list-choose h2 {
 	margin: 0;
 	padding-left: 0;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.1rem;
 }
 
 @media (min-width: 850px) {
@@ -86,12 +85,17 @@ ul li a:focus {
 		grid-template-columns: auto 1fr;
 	}
 	.list-choose {
+		padding-top: 50px;
+		padding-bottom: 50px;
 		grid-row: 1;
 		grid-column: 1;
 	}
 	.person-view {
 		grid-row: 1;
 		grid-column: 2;
+	}
+	ul li a {
+		padding: 0.2rem 1.5rem;
 	}
 }
 </style>

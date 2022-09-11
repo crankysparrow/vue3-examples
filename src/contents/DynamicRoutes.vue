@@ -1,15 +1,9 @@
 <script setup>
-import { people } from '../data/tng.json'
-import examples from '../data/examples'
-import { useRouter } from 'vue-router'
+import Fold from '../components/Fold.vue'
+import FoldH2 from '../components/FoldH2.vue'
 import List from '../components/List.vue'
 import RouterPushCharacters from '../components/RouterPushCharacters.vue'
-
-const router = useRouter()
-
-const doRouting = () => {
-	router.push('person/1')
-}
+import examples from '../data/examples'
 </script>
 
 <template>
@@ -18,93 +12,151 @@ const doRouting = () => {
 
 		How to create dynamic routes & a million different ways we can use them.
 
-		<h2>Named Route with Props</h2>
+		<FoldH2 :defaultOpen="true">
+			<template #title>Named Route with Props</template>
+			<template #content>
+				<highlightjs language="html" :code="examples.named" />
 
-		<highlightjs language="html" :code="examples.named" />
+				<Fold>
+					<template #title> Example </template>
+					<template #content>
+						<List v-slot="person">
+							<router-link
+								:to="{
+									name: 'person',
+									params: { id: person.id },
+								}">
+								{{ person.name }}
+							</router-link>
+						</List>
+					</template>
+				</Fold>
+			</template>
+		</FoldH2>
 
-		<List v-slot="person">
-			<router-link :to="{ name: 'person', params: { id: person.id } }">
-				{{ person.name }}
-			</router-link>
-		</List>
+		<FoldH2 :defaultOpen="true">
+			<template #title>Unnamed Route with Props</template>
+			<template #content>
+				<p>
+					access the ID in the Person component in the same way as
+					named route above.
+				</p>
 
-		<h2>Unnamed Route with Props</h2>
-		<p>
-			access the ID in the Person component in the same way as named route
-			above.
-		</p>
-		<highlightjs autodetect :code="examples.unnamedProps" />
+				<highlightjs autodetect :code="examples.unnamedProps" />
 
-		<List v-slot="person">
-			<router-link :to="`/person-without-name/${person.id}`">
-				{{ person.name }}
-			</router-link>
-		</List>
+				<Fold>
+					<template #title> Example </template>
+					<template #content>
+						<List v-slot="person">
+							<router-link
+								:to="`/person-without-name/${person.id}`">
+								{{ person.name }}
+							</router-link>
+						</List>
+					</template>
+				</Fold>
 
-		<h3>This doesn't work:</h3>
-		(object with path + params, if no named route)
+				<h3>This doesn't work:</h3>
+				(object with path + params, if no named route)
 
-		<highlightjs autodetect :code="examples.unnamedLinkWithPath" />
+				<highlightjs autodetect :code="examples.unnamedLinkWithPath" />
 
-		<h3>This is okay:</h3>
-		(just path variable in <code>:to</code>)
+				<h3>This is okay:</h3>
+				(just path variable in <code>:to</code>)
 
-		<highlightjs autodetect :code="examples.unnamedLinkPathNoParams" />
+				<highlightjs
+					autodetect
+					:code="examples.unnamedLinkPathNoParams" />
 
-		<List v-slot="person">
-			<router-link
-				:to="{
-					path: `/person-without-name/${person.id}`,
-				}"
+				<Fold>
+					<template #content>
+						<List v-slot="person">
+							<router-link
+								:to="{
+									path: `/person-without-name/${person.id}`,
+								}">
+								{{ person.name }}
+							</router-link>
+						</List>
+					</template>
+				</Fold>
+			</template>
+		</FoldH2>
+
+		<FoldH2>
+			<template #title>Unnamed Route without Props</template>
+			<template #content>
+				<highlightjs
+					language="javascript"
+					:code="examples.unnamedNoProps" />
+
+				<Fold>
+					<template #content>
+						<List v-slot="person">
+							<router-link :to="`/person-noprops/${person.id}`">
+								{{ person.name }}
+							</router-link>
+						</List>
+					</template>
+				</Fold>
+			</template>
+		</FoldH2>
+
+		<FoldH2>
+			<template #title>Named Route + No Props</template>
+			<template #content>
+				<p>
+					you can still access id in the Person component as
+					<code>$route.params.id</code>
+				</p>
+
+				<highlightjs :code="examples.namedNoProps" />
+
+				<Fold>
+					<template #content>
+						<List v-slot="person">
+							<router-link
+								:to="{
+									name: 'personNameNoProps',
+									params: { id: person.id },
+								}"
+								>{{ person.name }}</router-link
+							>
+						</List>
+					</template>
+				</Fold>
+			</template>
+		</FoldH2>
+
+		<FoldH2>
+			<template #title>Component in JS</template>
+			<template #content>
+				(need to
+				<a
+					href="https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation"
+					>compile in the browser</a
+				>)
+
+				<highlightjs :code="examples.componentObject" />
+
+				<Fold>
+					<template #content>
+						<List v-slot="person">
+							<router-link :to="`person-object/${person.id}`">{{
+								person.name
+							}}</router-link>
+						</List>
+					</template>
+				</Fold>
+			</template>
+		</FoldH2>
+
+		<FoldH2>
+			<template #title
+				>Programmatic Routing with <code>router.push</code></template
 			>
-				{{ person.name }}
-			</router-link>
-		</List>
-
-		<h2>Unnamed Route without Props</h2>
-
-		<highlightjs language="javascript" :code="examples.unnamedNoProps" />
-		<List v-slot="person">
-			<router-link :to="`/person-noprops/${person.id}`">
-				{{ person.name }}
-			</router-link>
-		</List>
-
-		<h2>Named Route + No Props</h2>
-		<p>
-			you can still access id in the Person component as
-			<code>$route.params.id</code>
-		</p>
-
-		<highlightjs :code="examples.namedNoProps" />
-		<List v-slot="person">
-			<router-link
-				:to="{
-					name: 'personNameNoProps',
-					params: { id: person.id },
-				}"
-				>{{ person.name }}</router-link
-			>
-		</List>
-
-		<h2>Component in JS:</h2>
-		(need to
-		<a
-			href="https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation"
-			>compile in the browser</a
-		>)
-
-		<highlightjs :code="examples.componentObject" />
-
-		<List v-slot="person">
-			<router-link :to="`person-object/${person.id}`">{{
-				person.name
-			}}</router-link>
-		</List>
-
-		<h2>Programmatic Routing with <code>router.push</code></h2>
-
-		<RouterPushCharacters />
+			<template #content> <RouterPushCharacters /></template>
+		</FoldH2>
 	</div>
 </template>
 

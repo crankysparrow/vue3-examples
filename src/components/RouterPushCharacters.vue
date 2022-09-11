@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import { people } from '../data/tng.json'
-import examples from '../data/examples'
 import { useRouter } from 'vue-router'
+import examples from '../data/examples'
+import { people } from '../data/tng.json'
 
 const router = useRouter()
 

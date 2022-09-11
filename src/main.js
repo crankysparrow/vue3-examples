@@ -1,21 +1,21 @@
-import { createApp } from 'vue/dist/vue.esm-bundler'
-import './style.css'
-import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { createApp } from 'vue/dist/vue.esm-bundler'
+import App from './App.vue'
+import './style.css'
 
 import 'highlight.js/styles/lioshi.css'
 // import 'highlight.js/lib/common'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
-import hljsVuePlugin from '@highlightjs/vue-plugin'
 
-import Home from './contents/Home.vue'
 import About from './contents/About.vue'
 import DynamicRoutes from './contents/DynamicRoutes.vue'
+import Home from './contents/Home.vue'
 import People from './contents/People.vue'
+import PersonNoProps from './contents/route-example-person-noprops/id.vue'
 import Person from './contents/route-examples-person/id.vue'
 import PersonDefault from './contents/route-examples-person/PersonDefault.vue'
-import PersonNoProps from './contents/route-example-person-noprops/id.vue'
 
 const PersonObject = {
 	props: ['id'],
