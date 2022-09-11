@@ -53,7 +53,7 @@ ul li a {
 	background-color: transparent;
 	padding: 0.1rem 1.5rem;
 	margin-left: -1.5rem;
-	width: 100%;
+	margin-right: -1rem;
 }
 
 ul li a.router-link-active {

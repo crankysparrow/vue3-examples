@@ -9,10 +9,10 @@ import hljsVuePlugin from '@highlightjs/vue-plugin'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 
-import About from './contents/About.vue'
 import DynamicRoutes from './contents/DynamicRoutes.vue'
 import Home from './contents/Home.vue'
 import People from './contents/People.vue'
+import Resources from './contents/Resources.vue'
 import PersonNoProps from './contents/route-example-person-noprops/id.vue'
 import Person from './contents/route-examples-person/id.vue'
 import PersonDefault from './contents/route-examples-person/PersonDefault.vue'
@@ -26,7 +26,7 @@ const app = createApp(App)
 
 const routes = [
 	{ path: '/', component: Home, name: 'home' },
-	{ path: '/about', component: About, name: 'about' },
+	{ path: '/resources', component: Resources, name: 'resources' },
 	{
 		path: '/people',
 		component: People,

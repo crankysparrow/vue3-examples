@@ -1,7 +1,7 @@
 <script setup>
-import { people } from '../../data/tng.json'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { watch, ref, onMounted } from 'vue'
+import { people } from '../../data/tng.json'
 
 const route = useRoute()
 
@@ -29,8 +29,8 @@ watch(
 			<table>
 				<tbody>
 					<tr>
-						<th scope="row">name</th>
-						<td>{{ character.name }}</td>
+						<th scope="row">full name</th>
+						<td>{{ character.fullName }}</td>
 					</tr>
 					<tr>
 						<th scope="row">affiliation</th>
@@ -59,14 +59,14 @@ img {
 	max-width: 250px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 850px) {
 	.char-content {
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-start;
 	}
 	table {
-		margin-right: 1.5rem;
+		margin-right: 1rem;
 		margin-left: 1rem;
 		flex-grow: 1;
 	}
@@ -80,15 +80,15 @@ img {
 	.char-content {
 		justify-content: flex-end;
 	}
-	table th {
-		width: 7rem;
-	}
 }
 
 @media (min-width: 1024px) {
 	table {
 		margin-left: 2rem;
 		margin-right: 2rem;
+	}
+	table th {
+		width: 7rem;
 	}
 }
 </style>

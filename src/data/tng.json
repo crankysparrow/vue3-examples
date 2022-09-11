@@ -3,6 +3,7 @@
 		{
 			"id": 1,
 			"name": "Jean-Luc Picard",
+			"fullName": "Jean-Luc Picard",
 			"position": "Captain",
 			"species": "human",
 			"photo": "/img/picard.jpg",
@@ -12,6 +13,7 @@
 		{
 			"id": 2,
 			"name": "Data",
+			"fullName": "Data",
 			"position": "Chief Operations Officer",
 			"affiliation": "Starfleet, United Federation of Planets",
 			"species": "android",
@@ -21,6 +23,7 @@
 		{
 			"id": 3,
 			"name": "Geordi La Forge",
+			"fullName": "Geordi La Forge",
 			"playedBy": "LeVar Burton",
 			"species": "human",
 			"position": "Chief Engineer",
@@ -29,7 +32,8 @@
 		},
 		{
 			"id": 4,
-			"name": "Deanna Troi",
+			"name": "Troi",
+			"fullName": "Deanna Troi",
 			"playedBy": "Marina Sirtis",
 			"species": "betazoid/human",
 			"affiliation": "United Federation of Planets, Starfleet",
@@ -39,11 +43,22 @@
 		{
 			"id": 5,
 			"name": "Worf",
+			"fullName": "Worf, son of Mogh",
 			"species": "klingon",
 			"affiliation": "House of Martok, House of Mogh, Starfleet",
 			"playedBy": "Michael Dorn",
 			"position": "Chief Security Officer",
 			"photo": "/img/worf.jpg"
+		},
+		{
+			"id": 6,
+			"name": "Riker",
+			"fullName": "William T. Riker",
+			"species": "human",
+			"affiliation": "Starfleet",
+			"playedBy": "Jonathan Frakes",
+			"position": "Commander",
+			"photo": "/img/riker.jpg"
 		}
 	]
 }

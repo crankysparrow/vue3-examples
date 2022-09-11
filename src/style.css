@@ -13,11 +13,18 @@
 	-webkit-text-size-adjust: 100%;
 }
 
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
 	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
 		segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto,
 		arial, sans-serif;
 	color: #eee;
+	box-sizing: border-box;
 }
 
 a {

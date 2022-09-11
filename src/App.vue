@@ -7,7 +7,7 @@
 	<div class="wrap">
 		<div class="links">
 			<router-link :to="{ name: 'home' }">Home</router-link>
-			<router-link :to="{ name: 'about' }">About</router-link>
+			<router-link :to="{ name: 'resources' }">Resources</router-link>
 			<router-link :to="{ name: 'people' }">People</router-link>
 			<router-link :to="{ name: 'dynamic-routes' }"
 				>Dynamic Routes</router-link
