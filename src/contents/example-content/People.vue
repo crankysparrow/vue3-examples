@@ -1,5 +1,5 @@
 <script setup>
-import { people } from '../data/tng.json'
+import { people } from '~/data/tng.json'
 </script>
 
 <template>

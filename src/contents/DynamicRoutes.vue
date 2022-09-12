@@ -1,4 +1,5 @@
 <script setup>
+import CodeEditor from '../components/CodeEditor.vue'
 import Fold from '../components/Fold.vue'
 import FoldH2 from '../components/FoldH2.vue'
 import List from '../components/List.vue'
@@ -7,7 +8,7 @@ import examples from '../data/examples'
 </script>
 
 <template>
-	<div class="page page-people">
+	<div class="page page-dynamic">
 		<h1>Dynamic Routing</h1>
 
 		How to create dynamic routes & a million different ways we can use them.
@@ -15,7 +16,7 @@ import examples from '../data/examples'
 		<FoldH2 :defaultOpen="true">
 			<template #title>Named Route with Props</template>
 			<template #content>
-				<highlightjs language="html" :code="examples.named" />
+				<CodeEditor :content="examples.named" />
 
 				<Fold>
 					<template #title> Example </template>
@@ -42,7 +43,7 @@ import examples from '../data/examples'
 					named route above.
 				</p>
 
-				<highlightjs autodetect :code="examples.unnamedProps" />
+				<CodeEditor :content="examples.unnamedProps" />
 
 				<Fold>
 					<template #title> Example </template>
@@ -59,14 +60,12 @@ import examples from '../data/examples'
 				<h3>This doesn't work:</h3>
 				(object with path + params, if no named route)
 
-				<highlightjs autodetect :code="examples.unnamedLinkWithPath" />
+				<CodeEditor :content="examples.unnamedLinkWithPath" />
 
 				<h3>This is okay:</h3>
 				(just path variable in <code>:to</code>)
 
-				<highlightjs
-					autodetect
-					:code="examples.unnamedLinkPathNoParams" />
+				<CodeEditor :content="examples.unnamedLinkPathNoParams" />
 
 				<Fold>
 					<template #content>
@@ -86,9 +85,7 @@ import examples from '../data/examples'
 		<FoldH2>
 			<template #title>Unnamed Route without Props</template>
 			<template #content>
-				<highlightjs
-					language="javascript"
-					:code="examples.unnamedNoProps" />
+				<CodeEditor :content="examples.unnamedNoProps" />
 
 				<Fold>
 					<template #content>
@@ -110,7 +107,7 @@ import examples from '../data/examples'
 					<code>$route.params.id</code>
 				</p>
 
-				<highlightjs :code="examples.namedNoProps" />
+				<CodeEditor :content="examples.namedNoProps" />
 
 				<Fold>
 					<template #content>
@@ -137,7 +134,7 @@ import examples from '../data/examples'
 					>compile in the browser</a
 				>)
 
-				<highlightjs :code="examples.componentObject" />
+				<CodeEditor :content="examples.componentObject" />
 
 				<Fold>
 					<template #content>
@@ -152,19 +149,15 @@ import examples from '../data/examples'
 		</FoldH2>
 
 		<FoldH2>
-			<template #title
-				>Programmatic Routing with <code>router.push</code></template
-			>
+			<template #title>
+				Programmatic Routing with <code>router.push</code>
+			</template>
 			<template #content> <RouterPushCharacters /></template>
 		</FoldH2>
 	</div>
 </template>
 
 <style scoped>
-.page-people {
-	background-color: var(--color-gray-6);
-}
-
 h2 {
 	border-bottom: 1px solid var(--color-gray-4);
 	margin-left: -1rem;

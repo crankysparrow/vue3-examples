@@ -1,3 +1,5 @@
+<script setup></script>
+
 <template>
 	<div class="page page-home">
 		<h1>Vue3 Notes</h1>

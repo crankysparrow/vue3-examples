@@ -1,21 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from 'vue/dist/vue.esm-bundler'
 import App from './App.vue'
-import './style.css'
 
-import 'highlight.js/styles/lioshi.css'
+// import 'highlight.js/styles/lioshi.css'
 // import 'highlight.js/lib/common'
-import hljsVuePlugin from '@highlightjs/vue-plugin'
-import hljs from 'highlight.js/lib/core'
-import javascript from 'highlight.js/lib/languages/javascript'
+// import hljsVuePlugin from '@highlightjs/vue-plugin'
+// import hljs from 'highlight.js/lib/core'
+// import javascript from 'highlight.js/lib/languages/javascript'
+//
+import 'prismjs'
+// import 'prismjs/themes/prism.css'
+// import '~/styles/prism-coldark-cold.css'
+// import '~/styles/base2tone-meadow-dark.css'
+import '~/styles/prism-base2tone-evening-light.css'
+// import '~/styles/prism-base2tone-drawbridge-light.css'
+// import '~/styles/prism-base16-tomorrow-dark.css'
 
 import DynamicRoutes from './contents/DynamicRoutes.vue'
+import People from './contents/example-content/People.vue'
 import Home from './contents/Home.vue'
-import People from './contents/People.vue'
 import Resources from './contents/Resources.vue'
 import PersonNoProps from './contents/route-example-person-noprops/id.vue'
 import Person from './contents/route-examples-person/id.vue'
 import PersonDefault from './contents/route-examples-person/PersonDefault.vue'
+
+import './style.css'
 
 const PersonObject = {
 	props: ['id'],
@@ -67,9 +76,6 @@ const router = createRouter({
 
 app.use(router)
 
-hljs.registerLanguage('javascript', javascript)
-app.use(hljsVuePlugin)
-app.mount('#app')
+// hljs.registerLanguage('javascript', javascript)
 
-// install vue router:
-// https://router.vuejs.org/guide/#javascript
+app.mount('#app')

@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import examples from '../data/examples'
 import { people } from '../data/tng.json'
+import CodeEditor from './CodeEditor.vue'
 
 const router = useRouter()
 
@@ -21,7 +22,8 @@ const doRouting = () => {
 
 <template>
 	<div class="router-push-example">
-		<highlightjs language="javascript" :code="examples.routerPush" />
+		<CodeEditor :content="examples.routerPush" />
+
 		<div class="input-wrap">
 			<label for="characters">Select a character:</label>
 			<select name="characters" id="characters" v-model="charId">

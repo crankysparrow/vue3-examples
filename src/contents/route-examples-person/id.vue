@@ -1,12 +1,11 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { people } from '../../data/tng.json'
+import { people } from '~/data/tng.json'
 
 const route = useRoute()
 
 const props = defineProps(['id'])
-
 const character = ref()
 
 onMounted(() => {

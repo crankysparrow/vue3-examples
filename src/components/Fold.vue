@@ -14,7 +14,7 @@ const toggle = () => {
 
 <template>
 	<div class="fold">
-		<button @click="toggle" :aria-expanded="open">
+		<button @click="toggle" :aria-expanded="open" class="fold-btn">
 			<h3>
 				<slot name="title">Example</slot>
 			</h3>
@@ -26,25 +26,13 @@ const toggle = () => {
 </template>
 
 <style scoped>
-button {
-	background: transparent;
-	padding: 0;
-	color: inherit;
-	margin-top: 1rem;
-	border-radius: 0;
-	width: 100%;
-	align-items: stretch;
-	max-width: none;
-	display: block;
-	text-align: left;
-	/* color-teal-5 */
-	background-color: rgba(0, 68, 60, 0.3);
-	padding: 0.2rem 1rem;
+.fold {
+	--hover: #8599fb;
 }
-
-button:hover {
-	/* background-color: var(--color-azure-4); */
-	background-color: rgba(0, 68, 60, 0.9);
+.fold button.fold-btn {
+	margin-top: 1rem;
+	padding: 0.2rem 1rem;
+	background-color: #d5f4ff;
 }
 
 h3 {
@@ -60,11 +48,27 @@ h3:before {
 	margin-right: 1rem;
 }
 
-button[aria-expanded='true'] h3:before {
+button.fold-btn[aria-expanded='true'] h3:before {
 	content: '-';
 }
 
-.content {
+.fold .content {
 	padding: 1rem;
+	/* background-color: #e3f7ff; */
+	position: relative;
+	z-index: 1;
+	border-left-color: #d5f4ff;
+}
+
+.fold .content:before {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	content: '';
+	background-color: var(--color-sky-1);
+	z-index: -1;
+	opacity: 0.5;
 }
 </style>
