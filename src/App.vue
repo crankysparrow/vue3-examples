@@ -9,11 +9,14 @@
 			<router-link :to="{ name: 'home' }">Home</router-link>
 			<router-link :to="{ name: 'resources' }">Resources</router-link>
 			<router-link :to="{ name: 'people' }">People</router-link>
+			<router-link :to="{ name: 'props-refs' }">Props & Refs</router-link>
 			<router-link :to="{ name: 'dynamic-routes' }"
 				>Dynamic Routes</router-link
 			>
 		</div>
-		<router-view></router-view>
+		<div class="bg">
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 

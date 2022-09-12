@@ -29,6 +29,5 @@ const resources = [
 
 <style scoped>
 .resources-page {
-	background-color: var(--color-azure-6);
 }
 </style>

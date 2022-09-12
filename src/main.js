@@ -19,6 +19,7 @@ import '~/styles/prism-base2tone-evening-light.css'
 import DynamicRoutes from './contents/DynamicRoutes.vue'
 import People from './contents/example-content/People.vue'
 import Home from './contents/Home.vue'
+import PropsAndRef from './contents/PropsAndRef.vue'
 import Resources from './contents/Resources.vue'
 import PersonNoProps from './contents/route-example-person-noprops/id.vue'
 import Person from './contents/route-examples-person/id.vue'
@@ -67,6 +68,8 @@ const routes = [
 		name: 'personNameNoProps',
 	},
 	{ path: '/person-object/:id', component: PersonObject, props: true },
+
+	{ path: '/props-refs', component: PropsAndRef, name: 'props-refs' },
 ]
 
 const router = createRouter({

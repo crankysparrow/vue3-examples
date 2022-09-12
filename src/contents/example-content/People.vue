@@ -30,7 +30,8 @@ import { people } from '~/data/tng.json'
 	padding-right: 0;
 }
 .list-choose {
-	background-color: #303030;
+	/* background-color: #303030; */
+	background-color: var(--color-violet-3);
 	padding-left: 2rem;
 	padding-right: 2rem;
 	padding-top: 20px;
@@ -54,6 +55,7 @@ ul li a {
 	padding: 0.1rem 1.5rem;
 	margin-left: -1.5rem;
 	margin-right: -1rem;
+	color: #fff;
 }
 
 ul li a.router-link-active {
@@ -63,8 +65,10 @@ ul li a.router-link-active {
 
 ul li a:hover,
 ul li a:focus {
-	background-color: var(--color-teal-4);
-	color: #eee;
+	/* background-color: var(--color-teal-4); */
+	/* color: #eee; */
+	background-color: var(--color-indigo-2);
+	color: var(--color-indigo-6);
 	text-decoration: none;
 }
 

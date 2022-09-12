@@ -97,9 +97,7 @@ h3 {
 	margin-top: 2rem;
 }
 
-.page {
-	padding: 50px 2rem 80px;
-	background-color: #fcfcfc;
+.bg {
 	--gradient: linear-gradient(
 		45deg,
 		var(--color-raspberry-3),
@@ -108,25 +106,20 @@ h3 {
 		var(--color-aquamarine-2) 66%,
 		var(--color-indigo-3) 100%
 	);
-	--top: linear-gradient(#fcfcfc 0%, #fcfcfc 100%);
 	background: var(--gradient);
 	border-radius: 40px;
-	max-width: 1000px;
+	padding: 5px;
+	max-width: 1010px;
 	margin: 0 auto;
+}
+.page {
+	padding: 50px 2rem 80px;
+	background-color: #fcfcfc;
+	--top: linear-gradient(#fcfcfc 0%, #fcfcfc 100%);
+	border-radius: 36px;
 	z-index: 1;
 	position: relative;
 	overflow: hidden;
-	&:before {
-		content: '';
-		position: absolute;
-		width: calc(100% - 10px);
-		height: calc(100% - 10px);
-		left: 5px;
-		top: 5px;
-		background: #fcfcfc;
-		z-index: -1;
-		border-radius: 36px;
-	}
 }
 
 pre {
@@ -185,19 +178,22 @@ table {
 	border-collapse: collapse;
 	font-size: 1rem;
 	font-weight: 400;
+	background-color: #fff9eb;
 }
 
 table td,
 table th {
-	border: 1px solid var(--color-gray-4);
+	border: 1px solid rgba(208, 208, 255, 0.5);
 	padding: 0.6rem 1rem;
 	text-align: left;
 	vertical-align: middle;
 }
 
 table th {
-	background-color: var(--color-teal-3);
+	/* background-color: #92a4ff; */
+	background-color: var(--color-indigo-3);
 	color: #1a1a1a;
+	color: #fff;
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 	font-weight: 700;

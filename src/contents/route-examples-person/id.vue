@@ -57,6 +57,10 @@ watch(
 img {
 	max-width: 250px;
 }
+.char-content {
+	padding-right: 1rem;
+	padding-left: 1rem;
+}
 
 @media (min-width: 850px) {
 	.char-content {
