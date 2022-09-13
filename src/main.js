@@ -2,19 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from 'vue/dist/vue.esm-bundler'
 import App from './App.vue'
 
-// import 'highlight.js/styles/lioshi.css'
-// import 'highlight.js/lib/common'
-// import hljsVuePlugin from '@highlightjs/vue-plugin'
-// import hljs from 'highlight.js/lib/core'
-// import javascript from 'highlight.js/lib/languages/javascript'
-//
 import 'prismjs'
-// import 'prismjs/themes/prism.css'
-// import '~/styles/prism-coldark-cold.css'
-// import '~/styles/base2tone-meadow-dark.css'
 import '~/styles/prism-base2tone-evening-light.css'
-// import '~/styles/prism-base2tone-drawbridge-light.css'
-// import '~/styles/prism-base16-tomorrow-dark.css'
 
 import DynamicRoutes from './contents/DynamicRoutes.vue'
 import People from './contents/example-content/People.vue'
@@ -59,7 +48,6 @@ const routes = [
 		component: DynamicRoutes,
 		name: 'dynamic-routes',
 	},
-	// { path: '/person/:id', name: 'person', component: Person, props: true },
 	{ path: '/person-without-name/:id', component: Person, props: true },
 	{ path: '/person-noprops/:id', component: PersonNoProps },
 	{
@@ -69,7 +57,11 @@ const routes = [
 	},
 	{ path: '/person-object/:id', component: PersonObject, props: true },
 
-	{ path: '/props-refs', component: PropsAndRef, name: 'props-refs' },
+	{
+		path: '/props-refs',
+		component: PropsAndRef,
+		name: 'props-refs',
+	},
 ]
 
 const router = createRouter({
@@ -78,7 +70,4 @@ const router = createRouter({
 })
 
 app.use(router)
-
-// hljs.registerLanguage('javascript', javascript)
-
 app.mount('#app')

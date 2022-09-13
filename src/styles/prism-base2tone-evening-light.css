@@ -32,12 +32,12 @@ pre[class*='language-'] {
 	background: var(--bg);
 	color: var(--main);
 	--bg: #fbfaf9;
-	--bg: #fff9eb;
+	--bg: var(--code-bg);
 	--main: #9a86fd;
 	--tag: #6a51e6;
 	--props: #ff8b1e;
 	--insert: #b37537;
-	--string: #6d50ff;
+	--string: var(--code-str);
 	--variable: #c4b9fe;
 	--fade: #8b85a8ba;
 }

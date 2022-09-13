@@ -1,0 +1,17 @@
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(6)
+</script>
+
+<template>
+	<div class="buttons-wrap">
+		<div class="label-title">count</div>
+
+		<div class="count-note">
+			{{ count }}
+		</div>
+		<button @click="() => count++"><span>+</span></button>
+		<button @click="() => count--"><span>-</span></button>
+	</div>
+</template>

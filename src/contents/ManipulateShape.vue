@@ -1,5 +1,5 @@
 <script>
-import ToggleSwitch from '~/components/props-refs/ToggleSwitch.vue'
+import ToggleSwitch from '~/components/ToggleSwitch.vue'
 
 export default {
 	components: {
@@ -7,8 +7,8 @@ export default {
 	},
 	data() {
 		return {
-			sides: 6,
-			options: ['points', 'sides'],
+			count: 6,
+			options: ['points', 'count'],
 			current: 'points',
 		}
 	},
@@ -17,7 +17,7 @@ export default {
 			let pts = ''
 			let currentAngle = Math.floor(Math.random() * 180)
 			let toCount =
-				this.current === 'points' ? this.sides * 2 : this.sides
+				this.current === 'points' ? this.count * 2 : this.count
 			let angleStep = (Math.PI * 2) / toCount
 
 			for (let i = 0; i < toCount; i++) {
@@ -45,13 +45,12 @@ export default {
 
 <template>
 	<div>
-		<!-- <h1>{{ current }}: {{ sides }}</h1> -->
 		<div class="options-choices">
 			<div class="buttons-wrap">
 				<div class="label-title">count</div>
-				<div class="count-note">{{ sides }}</div>
-				<button @click="() => sides++"><span>+</span></button>
-				<button @click="() => sides--"><span>-</span></button>
+				<div class="count-note">{{ count }}</div>
+				<button @click="() => count++"><span>+</span></button>
+				<button @click="() => count--"><span>-</span></button>
 			</div>
 			<ToggleSwitch :options="options" v-model="current">
 				<template #label-title>
@@ -87,52 +86,5 @@ h1 {
 	grid-template-columns: auto auto;
 	column-gap: 3rem;
 	margin-bottom: 50px;
-}
-
-.buttons-wrap {
-	display: grid;
-	justify-content: space-between;
-	grid-template-columns: 48% 48%;
-}
-.buttons-wrap .label-title {
-	grid-column: 1 / 3;
-	grid-row: 1;
-}
-.buttons-wrap .count-note {
-	grid-column: 1 / 3;
-	grid-row: 2;
-	text-align: center;
-	font-size: 5rem;
-	font-weight: 700;
-	line-height: 1;
-	margin-bottom: 0.5rem;
-	color: var(--color-indigo-4);
-}
-
-.label-title {
-	color: var(--color-violet-4);
-	font-size: 2.5rem;
-	font-weight: 500;
-	display: block;
-	text-align: center;
-	line-height: 1.1;
-	margin-bottom: 1rem;
-}
-
-button {
-	width: 3rem;
-	height: 3rem;
-	padding: 0;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 1.5rem;
-}
-
-button span {
-	font-size: 4rem;
-	font-weight: 500;
-	line-height: 3rem;
-	padding-bottom: 0.6rem;
 }
 </style>

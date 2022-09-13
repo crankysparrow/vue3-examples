@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import examples from '../data/examples'
+import examples from '../data/examples-routing'
 import { people } from '../data/tng.json'
 import CodeEditor from './CodeEditor.vue'
 

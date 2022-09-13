@@ -4,7 +4,7 @@ import Fold from '../components/Fold.vue'
 import FoldH2 from '../components/FoldH2.vue'
 import List from '../components/List.vue'
 import RouterPushCharacters from '../components/RouterPushCharacters.vue'
-import examples from '../data/examples'
+import examples from '../data/examples-routing'
 </script>
 
 <template>
