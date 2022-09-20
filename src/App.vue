@@ -4,33 +4,31 @@
 </script>
 
 <template>
-	<div class="wrap">
-		<div class="links">
-			<router-link :to="{ name: 'home' }">Home</router-link>
-			<router-link :to="{ name: 'resources' }">Resources</router-link>
-			<router-link :to="{ name: 'people' }">People</router-link>
-			<router-link :to="{ name: 'props-refs' }">Props & Refs</router-link>
-			<router-link :to="{ name: 'dynamic-routes' }"
-				>Dynamic Routes</router-link
-			>
-		</div>
-		<div class="bg">
-			<router-view></router-view>
-		</div>
-	</div>
+  <div class="wrap">
+    <div class="links">
+      <router-link :to="{ name: 'home' }">Home</router-link>
+      <router-link :to="{ name: 'resources' }">Resources</router-link>
+      <router-link :to="{ name: 'people' }">People</router-link>
+      <router-link :to="{ name: 'data-refs' }">Data & Refs</router-link>
+      <router-link :to="{ name: 'dynamic-routes' }">Dynamic Routes</router-link>
+    </div>
+    <div class="bg">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <style scoped>
 .links {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 .links a {
-	margin: 0 1.5rem;
-	font-size: 1.2rem;
-	line-height: 1;
+  margin: 0 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1;
 }
 </style>
