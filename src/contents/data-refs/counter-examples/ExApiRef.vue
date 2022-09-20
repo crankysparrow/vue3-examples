@@ -13,6 +13,7 @@ const count = ref(6)
       </div>
       <button @click="() => count++"><span>+</span></button>
       <button @click="() => count--"><span>-</span></button>
+      <div class="component-def">This component: <code>ExApiRef.vue</code></div>
     </div>
   </div>
 </template>

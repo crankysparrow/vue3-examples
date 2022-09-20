@@ -2,9 +2,9 @@
 import CodeEditor from '~/components/CodeEditor.vue'
 import Fold from '~/components/Fold.vue'
 import FoldH2 from '~/components/FoldH2.vue'
-import ExOptionsData from '~/contents/props-refs/ExOptionsData.vue'
+import ExOptionsData from '~/contents/data-refs/counter-examples/ExOptionsData.vue'
 import examples from '~/data/examples-props-refs.js'
-import ExApiRef from './props-refs/ExApiRef.vue'
+import ExApiRef from '~/contents/data-refs/counter-examples/ExApiRef.vue'
 </script>
 
 <template>

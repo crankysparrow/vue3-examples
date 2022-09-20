@@ -1,68 +1,75 @@
+let unnamedWithoutProps = `const routes = [
+  { path: '/unnamedroute-noprops/:id', component: PersonNoProps },
+]
+
+// link
+<router-link :to="\`/unnamedroute-noprops/\${person.id}\`">
+
+// Person component:
+<div>ID: {{ $route.params.id }}</div>`
+
 let named = `// main.js
 const routes = [
-  { path: '/person/:id', name: 'person', component: Person, props: true },
+  { path: '/namedrouteprops/:id', name: 'namedroute-props', component: PersonProps, props: true },
 ]
-    
-// people.vue
-<router-link :to="{ name: 'person', params: { id: person.id } }">
-      
-// Person component: script setup
+
+// links
+<router-link :to="{ name: 'namedroute-props', params: { id: person.id } }">
+
+// person component script setup
 const props = defineProps(['id'])
 const props = defineProps({ id: String }) // or this
-// Person component: template
-<div>ID: {{ id }}</div>  
+// person component: template
+<div>ID: {{ id }}</div>
 `
 
 let unnamedProps = `const routes = [
-  { path: '/person-without-name/:id', component: Person, props: true },
+  { path: '/unnamedroute-withprops/:id', component: PersonProps, props: true },
 ]
 
-// people.vue 
-<router-link :to="\`/person-without-name/\${person.id}\`">`
+// links
+<router-link :to="\`/unnamedroute-withprops/\${person.id}\`">
 
-let unnamedNoProps = `const routes = [
-  { path: '/person-noprops/:id', component: PersonNoProps },
-]
+// this doesn't work - the param doesn't get passed
+<router-link:to="{ path: '/unnamedroute-withprops/', params: { id: person.id } }">
 
-// people.vue
-<router-link :to="\`/person-noprops/\${person.id}\`">
+// this is okay
+<router-link :to="{ path: \`/unnamedroute-withprops/\${person.id}\` }">
+`
 
-// Person component:
-<div>ID: {{ $route.params.id }}</div>`
+let unnamedDoesntWork = `
+<router-link:to="{ path: '/unnamedroute-withprops/', params: { id: person.id } }">`
 
-let namedNoProps = `const routes = [
+let unnamedOkay = `<router-link :to="{ path: \`person-example2/\${person.id}\` }">`
+
+let namedWithoutProps = `const routes = [
 { path: '/person-named-noprops/:id', component: PersonNoProps, name: 'personNameNoProps' } ]
 
-//people.vue 
-<router-link :to="name: 'personNameNoProps', params: { id: person.id }">
-// Person component:
+// link
+<router-link :to="{name: 'personNameNoProps', params: { id: person.id }}">
+// component
 <div>ID: {{ $route.params.id }}</div>`
 
-let unnamedLinkWithPath = `<router-link:to="{ path: '/person-without-name/', params: { id: person.id } }">`
-
-let unnamedLinkPathNoParams = `<router-link :to="{ path: \`person-without-name/\${person.id}\` }">`
-
-let componentObject = `//main.js 
+let componentObject = `//main.js
 const PersonObject = {
 	props: ['id'],
-	template: '<div>Person: {{ id }}</div>',
+	template: '<div>PersonObject component with id: {{ id }}</div>',
 }
 const routes = [
   { path: '/person-object/:id', component: PersonObject, props: true }
 ]
 `
 
-let routerPush = `//either one works
-router.push(\`person/\${charId.value}\`)
+let routerPush = `router.push(\`person/\${charId.value}\`)
 router.push({ name: 'person', params: { id: charId.value } })`
 
 export default {
-	named,
-	unnamedProps,
-	unnamedNoProps,
-	namedNoProps,
-	unnamedLinkWithPath,
-	unnamedLinkPathNoParams,
-	componentObject,
-	routerPush,
+  named,
+  unnamedProps,
+  unnamedWithoutProps,
+  namedWithoutProps,
+  unnamedDoesntWork,
+  unnamedOkay,
+  componentObject,
+  routerPush,
 }
