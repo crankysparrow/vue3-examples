@@ -15,9 +15,13 @@ import Person from './contents/dynamic-routes/people/Person.vue'
 import PersonIndex from './contents/dynamic-routes/people/PersonIndex.vue'
 
 import DataRefs from './contents/DataRefs.vue'
-import ManipulateShapeOptions from './contents/data-refs/ManipulateShapeOptions.vue'
-import ManipulateShape from './contents/data-refs/ManipulateShape.vue'
-import ManipulateShapeReactive from './contents/data-refs/ManipulateShapeReactive.vue'
+import ManipulateShape from '~/contents/data-refs/ManipulateShape.vue'
+import ManipulateShapeOptions from '~/contents/data-refs/manipulate-shape/ManipulateShapeOptions.vue'
+import ManipulateShapeReactive from '~/contents/data-refs/manipulate-shape/ManipulateShapeReactive.vue'
+import ManipulateShapeRef from '~/contents/data-refs/manipulate-shape/ManipulateShapeRef.vue'
+// import ManipulateShapeOptions from '~/contents/data-refs/ManipulateShapeOptions.vue'
+// import ManipulateShape from '~/contents/data-refs/ManipulateShape.vue'
+// import ManipulateShapeReactive from '~/contents/data-refs/ManipulateShapeReactive.vue'
 
 import './style.css'
 
@@ -82,20 +86,46 @@ const routes = [
   },
 
   {
-    path: '/manipulate-shape-options',
-    name: 'shape-options',
-    component: ManipulateShapeOptions,
-  },
-  {
-    path: '/manipulate-shape-composition',
-    name: 'shape-composition',
+    path: '/shape',
     component: ManipulateShape,
+    name: 'shape',
+    children: [
+      {
+        name: 'options',
+        component: ManipulateShapeOptions,
+        name: 'shape-options',
+        path: 'shape-options',
+      },
+      {
+        name: 'reactive',
+        component: ManipulateShapeReactive,
+        name: 'shape-reactive',
+        path: 'shape-reactive',
+      },
+      {
+        name: 'ref',
+        component: ManipulateShapeRef,
+        name: 'shape-ref',
+        path: 'shape-ref',
+      },
+    ],
   },
-  {
-    path: '/manipulate-shape-reactive',
-    name: 'shape-composition-reactive',
-    component: ManipulateShapeReactive,
-  },
+
+  // {
+  //   path: '/manipulate-shape-options',
+  //   name: 'shape-options',
+  //   component: ManipulateShapeOptions,
+  // },
+  // {
+  //   path: '/manipulate-shape-composition',
+  //   name: 'shape-composition',
+  //   component: ManipulateShape,
+  // },
+  // {
+  //   path: '/manipulate-shape-reactive',
+  //   name: 'shape-composition-reactive',
+  //   component: ManipulateShapeReactive,
+  // },
 ]
 
 const router = createRouter({

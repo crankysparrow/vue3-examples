@@ -1,46 +1,37 @@
-<script>
+<script setup>
 import ToggleSwitch from '~/components/ToggleSwitch.vue'
+import { computed, reactive } from 'vue'
 import examples from '~/data/examples-props-refs.js'
-import CodeEditor from '~/components/CodeEditor.vue'
 import Fold from '~/components/Fold.vue'
-import { findPoints } from './findPoints.js'
+import CodeEditor from '~/components/CodeEditor.vue'
+import { findPoints } from '~/contents/data-refs/findPoints'
 
-export default {
-  components: {
-    ToggleSwitch,
-    CodeEditor,
-    Fold,
-  },
-  data() {
-    return {
-      count: 6,
-      options: ['points', 'sides'],
-      current: 'points',
-      example: examples.shapeOptions,
-    }
-  },
-  computed: {
-    points() {
-      return findPoints(this.current, this.count)
-    },
-  },
+const state = reactive({
+  count: 6,
+  options: ['points', 'sides'],
+  current: 'points',
+})
 
-  methods: {},
-}
+// const count = ref(6)
+// const options = ref(['points', 'sides'])
+// const current = ref('points')
+
+const points = computed(() => {
+  return findPoints(state.current, state.count)
+})
 </script>
 
 <template>
-  <div class="page">
-    <h1>Shape with Options API</h1>
-
+  <div class="shape-inner">
+    <h1>Shape with Composition API and <code>reactive()</code></h1>
     <div class="options-choices">
       <div class="buttons-wrap">
-        <div class="label-title">{{ current }}</div>
-        <div class="count-note">{{ count }}</div>
-        <button @click="() => count++"><span>+</span></button>
-        <button @click="() => count--"><span>-</span></button>
+        <div class="label-title">{{ state.current }}</div>
+        <div class="count-note">{{ state.count }}</div>
+        <button @click="() => state.count++"><span>+</span></button>
+        <button @click="() => state.count--"><span>-</span></button>
       </div>
-      <ToggleSwitch :options="options" v-model="current">
+      <ToggleSwitch :options="state.options" v-model="state.current">
         <template #label-title>
           <div class="label-title">mode</div>
         </template>
@@ -53,7 +44,7 @@ export default {
     <Fold>
       <template #title>Show Code</template>
       <template #content>
-        <CodeEditor :content="example" />
+        <CodeEditor :content="examples.shapeCompositionReactive" />
       </template>
     </Fold>
   </div>
