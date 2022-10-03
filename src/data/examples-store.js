@@ -1,6 +1,6 @@
 let setupObject = {
   code: `// store
-export const useUserStore = defineStore('user', () => {
+export const useUserStore = defineStore('userSetupObject', () => {
   const user = ref({
     name: 'Michelle',
     avatar: '🐶',
@@ -66,8 +66,36 @@ const { updateAvatar, updateName } = store
   lines: '17',
 }
 
+let storeOptions = {
+  code: `// userStoreOptions.js
+  export const useUserStore = defineStore('userOptions', {
+    state: () => ({
+      name: 'Michelle',
+      avatar: '🐶',
+    }),
+    actions: {
+      updateName(newName) {
+        this.name = newName
+      },
+      updateAvatar(newAvatar) {
+        this.avatar = newAvatar
+      },
+    },
+  })
+
+  // component
+  import { useUserStore } from '~/store/userStoreOptions'
+  import { storeToRefs } from 'pinia'
+
+  const store = useUserStore()
+  const { name, avatar } = storeToRefs(store)
+  const { updateName, updateAvatar } = store
+`,
+}
+
 export default {
   setupObject,
   withoutStoreToRefs,
   withStoreToRefs,
+  storeOptions,
 }

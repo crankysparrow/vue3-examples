@@ -4,6 +4,7 @@ import CodeEditor from '~/components/CodeEditor.vue'
 import SetupStoreWithStoreToRefs from './stores/SetupStoreWithStoreToRefs.vue'
 import SetupStoreWtihoutStoreToRefs from './stores/SetupStoreWtihoutStoreToRefs.vue'
 import SetupStoreObject from './stores/SetupStoreObject.vue'
+import OptionsStore from './stores/OptionsStore.vue'
 </script>
 
 <template>
@@ -16,6 +17,12 @@ import SetupStoreObject from './stores/SetupStoreObject.vue'
         href="https://pinia.vuejs.org/core-concepts/#setup-stores"
         target="_blank"
         >Setup Stores</a
+      >
+      /
+      <a
+        href="https://pinia.vuejs.org/core-concepts/#option-stores"
+        target="_blank"
+        >Option Stores</a
       >
     </p>
 
@@ -40,6 +47,11 @@ import SetupStoreObject from './stores/SetupStoreObject.vue'
       </p>
       <CodeEditor :content="examples.setupObject" />
     </SetupStoreObject>
+
+    <OptionsStore title="options store">
+      <p>Also need <code>storeToRefs</code> here</p>
+      <CodeEditor :content="examples.storeOptions" />
+    </OptionsStore>
   </div>
 </template>
 
