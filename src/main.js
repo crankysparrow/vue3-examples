@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from 'vue/dist/vue.esm-bundler'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 
 import 'prismjs'
 import '~/styles/prism-base2tone-evening-light.css'
+import 'prismjs/plugins/line-highlight/prism-line-highlight'
+import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 
 import DynamicRoutes from './contents/DynamicRoutes.vue'
 import People from './contents/dynamic-routes/People.vue'
@@ -19,9 +22,8 @@ import ManipulateShape from '~/contents/data-refs/ManipulateShape.vue'
 import ManipulateShapeOptions from '~/contents/data-refs/manipulate-shape/ManipulateShapeOptions.vue'
 import ManipulateShapeReactive from '~/contents/data-refs/manipulate-shape/ManipulateShapeReactive.vue'
 import ManipulateShapeRef from '~/contents/data-refs/manipulate-shape/ManipulateShapeRef.vue'
-// import ManipulateShapeOptions from '~/contents/data-refs/ManipulateShapeOptions.vue'
-// import ManipulateShape from '~/contents/data-refs/ManipulateShape.vue'
-// import ManipulateShapeReactive from '~/contents/data-refs/ManipulateShapeReactive.vue'
+
+import Stores from '~/contents/Stores.vue'
 
 import './style.css'
 
@@ -111,6 +113,12 @@ const routes = [
     ],
   },
 
+  {
+    path: '/store',
+    component: Stores,
+    name: 'stores',
+  },
+
   // {
   //   path: '/manipulate-shape-options',
   //   name: 'shape-options',
@@ -134,4 +142,5 @@ const router = createRouter({
 })
 
 app.use(router)
+app.use(createPinia())
 app.mount('#app')

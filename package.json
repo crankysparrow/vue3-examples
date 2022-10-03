@@ -12,6 +12,7 @@
     "@highlightjs/vue-plugin": "^2.1.0",
     "autoprefixer": "^10.4.8",
     "highlightjs": "^9.16.2",
+    "pinia": "^2.0.22",
     "postcss": "^8.4.16",
     "postcss-nesting": "^10.1.10",
     "postcss-preset-env": "^7.8.1",

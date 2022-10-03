@@ -41,6 +41,10 @@
           </li>
         </ul>
       </li>
+
+      <li>
+        <router-link :to="{ name: 'stores' }">stores</router-link>
+      </li>
     </ul>
   </nav>
 </template>

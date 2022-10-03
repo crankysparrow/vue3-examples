@@ -281,3 +281,10 @@ code {
   margin-top: 2rem;
   display: inline-block;
 }
+
+.line-highlight:before {
+  content: none;
+}
+pre[data-line] {
+  padding-left: 1.5em;
+}
